@@ -1,32 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>我的个人网站</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 80px 24px;
-      font-family: system-ui, sans-serif;
-      background: #f5f7fb;
-      color: #243047;
-      line-height: 1.8;
-    }
-    main {
-      max-width: 680px;
-      margin: auto;
-    }
-    h1 {
-      font-size: 40px;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111512">
+  <meta name="description" content="ScatterMemory的人生。翻开一本记忆之书，收藏生活、旋律与不期而遇的灵感。">
+  <title>ScatterMemory的人生 · 记忆之书</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23181d18'/%3E%3Cpath d='M8 32Q32 7 56 32Q32 57 8 32Z' fill='none' stroke='%23b79b62' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%237ab6a7'/%3E%3Ccircle cx='32' cy='32' r='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
-    <h1>你好，欢迎来到我的网站！</h1>
-    <p>这是我的第一个个人网站，已通过 GitHub Pages 上线。</p>
-    <p>以后我会在这里分享项目、文章和生活记录。</p>
+  <svg class="svg-defs" aria-hidden="true"><defs>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".76" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".2"/></feComponentTransfer><feBlend in="SourceGraphic" mode="soft-light"/></filter>
+    <symbol id="ornament" viewBox="0 0 100 100"><path d="M6 94V6h88M13 77V13h64M8 8C44 8 48 30 34 36S14 19 35 20c28 1 10 29 31 30M20 69c-3-21 23-17 16-35M18 18l52 52M32 16c27 0 32 13 24 21M16 32c0 27 13 32 21 24M70 70l8 8m-3-16 10 6-6 10-10-6Z" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="m8 37 4 7-4 7-4-7Zm29-29 7 4 7-4-7-4Z" fill="currentColor"/></symbol>
+    <symbol id="spark" viewBox="0 0 24 24"><path d="M12 1c0 8 3 11 11 11-8 0-11 3-11 11 0-8-3-11-11-11 8 0 11-3 11-11Z" fill="currentColor"/></symbol>
+    <symbol id="play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z" fill="currentColor"/></symbol>
+    <symbol id="pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zm7 0h4v14h-4z" fill="currentColor"/></symbol>
+    <symbol id="prev" viewBox="0 0 24 24"><path d="M5 5h2v14H5zm14 0L8 12l11 7Z" fill="currentColor"/></symbol>
+    <symbol id="next" viewBox="0 0 24 24"><path d="M17 5h2v14h-2zM5 5l11 7-11 7Z" fill="currentColor"/></symbol>
+  </defs></svg>
+  <canvas id="dust" aria-hidden="true"></canvas>
+  <div class="ambient-rings" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="wordmark" href="#cover" id="home-link" aria-label="合上记忆之书"><span class="brand-star">✧</span> SCATTERMEMORY <span class="brand-sub">私人记忆馆</span></a>
+    <div class="header-right"><span class="edition">THE BOOK OF A LIFE</span><button class="quiet-button" id="motion-toggle" aria-pressed="false" title="减少动态效果">动效 <span>开</span></button></div>
+  </header>
+
+  <main class="world" id="world">
+    <div class="chapter-heading"><span class="hairline"></span><span id="scene-label">每一段记忆，都有自己的魔法</span><span class="hairline"></span></div>
+    <div class="book-stage" id="stage">
+      <div class="book" id="book">
+        <div class="book-block" aria-hidden="true"></div>
+        <div class="spread" id="spread" inert aria-label="书本内页">
+          <article class="paper left-paper" id="left-page"></article>
+          <article class="paper right-paper" id="right-page"></article>
+          <div class="binding" aria-hidden="true"></div>
+        </div>
+        <div class="turnsheet" id="turnsheet" aria-hidden="true"><div class="turn-front"><span>✧</span></div><div class="turn-back"><span>记忆在纸页之间流转</span></div></div>
+        <div class="cover" id="cover">
+          <div class="cover-front">
+            <div class="cover-inset"></div><div class="spine" aria-hidden="true"></div>
+            <svg class="corner tl" aria-hidden="true"><use href="#ornament"/></svg><svg class="corner tr" aria-hidden="true"><use href="#ornament"/></svg><svg class="corner bl" aria-hidden="true"><use href="#ornament"/></svg><svg class="corner br" aria-hidden="true"><use href="#ornament"/></svg>
+            <div class="cover-topline">A COLLECTION OF FLEETING MOMENTS</div>
+            <div class="cover-title"><span>ScatterMemory</span><h1>的人生</h1></div>
+            <div class="cover-rule"><span></span> ✧ <span></span></div>
+            <button id="eye-button" class="eye-button" aria-label="点击魔眼，翻开 ScatterMemory 的人生">
+              <svg viewBox="0 0 300 220" class="eye-art" aria-hidden="true">
+                <defs>
+                  <radialGradient id="irisColor"><stop offset="0" stop-color="#071a19"/><stop offset=".30" stop-color="#a6c6a2"/><stop offset=".50" stop-color="#438f7e"/><stop offset=".80" stop-color="#24584e"/><stop offset="1" stop-color="#081e1c"/></radialGradient>
+                  <radialGradient id="whiteColor"><stop stop-color="#c4caaa"/><stop offset=".7" stop-color="#718a75"/><stop offset="1" stop-color="#172d27"/></radialGradient>
+                  <linearGradient id="goldColor"><stop stop-color="#6b4b23"/><stop offset=".4" stop-color="#e4c787"/><stop offset=".7" stop-color="#95713a"/><stop offset="1" stop-color="#d4b776"/></linearGradient>
+                  <clipPath id="eyeClip"><path d="M45 110Q150 22 255 110Q150 198 45 110Z"/></clipPath>
+                </defs>
+                <g class="eye-halo" fill="none" stroke="url(#goldColor)"><circle cx="150" cy="110" r="95" stroke-width=".7" opacity=".45"/><circle cx="150" cy="110" r="87" stroke-dasharray="1 7" opacity=".55"/><path d="M150 1v20m0 178v20M40 110H20m260 0h-20M73 33l14 14m126 126 14 14M73 187l14-14M213 47l14-14" opacity=".6"/><path d="m150 5 5 10-5 10-5-10Zm0 190 5 10-5 10-5-10Z"/></g>
+                <path d="M31 110C75 77 106 52 150 53s75 24 119 57c-46 35-77 57-119 57S77 145 31 110Z" fill="#1c2018" stroke="url(#goldColor)" stroke-width="3"/>
+                <g clip-path="url(#eyeClip)"><rect x="40" y="45" width="220" height="135" fill="url(#whiteColor)"/>
+                  <g id="iris"><circle cx="150" cy="110" r="49" fill="url(#irisColor)"/><g id="iris-fibers"></g><circle cx="150" cy="110" r="20" fill="#050d0c"/><circle cx="150" cy="110" r="23" fill="none" stroke="#b8ba70" stroke-width="1.2" opacity=".7"/><ellipse cx="139" cy="95" rx="9" ry="6" fill="#f3f9df" opacity=".75"/><circle cx="161" cy="124" r="3" fill="#d7f4e3" opacity=".6"/></g>
+                  <path class="eyelid" d="M45 110Q150 22 255 110Q150 198 45 110Z" fill="#30251b"/>
+                </g>
+                <path d="M45 110Q150 22 255 110Q150 198 45 110Z" fill="none" stroke="url(#goldColor)" stroke-width="2"/>
+                <g fill="none" stroke="url(#goldColor)" opacity=".8"><path d="M50 95q-12-17-26-13m40 2Q44 61 34 66m42 10Q66 51 54 51m196 44q12-17 26-13m-40 2q20-23 30-18m-42 10q10-25 22-25M52 130q-15 10-26 4m45 8q-15 18-28 13m205-25q15 10 26 4m-45 8q15 18 28 13"/><path d="M105 43q45-22 90 0m-90 135q45 22 90 0"/></g>
+              </svg>
+              <span class="eye-callout">轻触魔眼 · 翻开此书</span>
+            </button>
+            <div class="cover-bottom"><span class="tiny-star">✦</span><p>那些散落的瞬间<br>终将成为我的星河</p><span class="cover-volume">VOLUME I · AN UNFINISHED STORY</span></div>
+          </div>
+          <div class="cover-back"><div class="endpaper-pattern"></div><span>SM</span><p>每个平凡的日子<br>都值得被记住。</p></div>
+        </div>
+        <nav class="ribbons" id="ribbons" aria-label="章节书签" inert>
+          <button data-chapter="toc" class="ribbon active" aria-label="目录" title="目录">目</button>
+          <button data-chapter="life" class="ribbon" aria-label="生活记录" title="生活记录">生</button>
+          <button data-chapter="music" class="ribbon" aria-label="音乐创作" title="音乐创作">乐</button>
+          <button data-chapter="video" class="ribbon" aria-label="视频分享" title="视频分享">影</button>
+          <button data-chapter="notes" class="ribbon" aria-label="随心杂记" title="随心杂记">记</button>
+        </nav>
+      </div>
+    </div>
+    <div class="under-book" id="under-book"><span class="cover-hint">它在等你，讲一个故事。</span><nav class="book-nav" aria-label="翻页操作" inert><button id="previous-page">← 上一页</button><button id="toc-button">✧ 目录</button><button id="close-book">合上书本</button><button id="next-page">下一页 →</button></nav></div>
   </main>
+  <footer class="site-footer"><span>EST. 2026</span><span>生活留痕，记忆成书。</span><span id="footer-state">THE STORY CONTINUES <i></i></span></footer>
+  <audio id="audio" preload="metadata"></audio>
+  <input id="file-input" type="file" accept=".mp3,audio/mpeg,audio/mp3" multiple hidden>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="tracks.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
