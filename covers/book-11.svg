@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 780" role="img" aria-label="上帝不掷骰子 · 私人阅读手记封面"><defs>
+ <linearGradient id="cloth" x2="1" y2="1"><stop stop-color="#202d4d"/><stop offset=".5" stop-color="#202d4d"/><stop offset="1" stop-color="#101b19" stop-opacity=".55"/></linearGradient>
+ <linearGradient id="foil"><stop stop-color="#d1b57b"/><stop offset=".45" stop-color="#efe0b5"/><stop offset="1" stop-color="#d1b57b"/></linearGradient>
+ <pattern id="linen" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 0h6M0 2h6M0 4h6M0 0v6M3 0v6" stroke="#fff" stroke-opacity=".035" stroke-width=".6"/></pattern>
+ <radialGradient id="light"><stop stop-color="#faf0b8" stop-opacity=".10"/><stop offset="1" stop-color="#000" stop-opacity=".15"/></radialGradient></defs>
+ <rect width="600" height="780" fill="#202d4d"/><rect width="600" height="780" fill="url(#cloth)"/><rect width="600" height="780" fill="url(#linen)"/><rect width="600" height="780" fill="url(#light)"/>
+ <path d="M14 0v780M23 0v780" stroke="#080e0c" stroke-opacity=".4" stroke-width="8"/>
+ <g fill="none" stroke="url(#foil)"><rect x="43" y="29" width="525" height="723" rx="2" opacity=".65"/><rect x="51" y="37" width="509" height="707" opacity=".22"/>
+ <path d="M43 68h26V29m499 39h-26V29M43 713h26v39m499-39h-26v39"/><path d="M220 237h62l18 9 18-9h62M225 653h150" opacity=".6"/></g>
+ <g fill="#d1b57b" text-anchor="middle" font-family="Georgia, 'Songti SC', SimSun, serif"><text x="300" y="80" font-size="9" letter-spacing="4">SCATTERMEMORY · PRIVATE LIBRARY</text><text x="300" y="145" font-size="34" letter-spacing="6" fill="#efe0b5">上帝不掷骰子</text>
+ <text x="300" y="272" font-size="8.5" letter-spacing="2.5">CHANCE &amp; CERTAINTY</text>
+ <text x="300" y="689" font-size="12" letter-spacing="6">阅读 · 思考 · 留痕</text><text x="300" y="719" font-size="8" letter-spacing="3">PERSONAL READING JOURNAL / 11</text></g>
+ <g transform="translate(100 295)" color="#d1b57b" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M200 60l80 47v94l-80 47-80-47v-94Zm0 0v94l80 47m-160-94 80 47v94"  stroke="currentColor" fill="currentColor" fill-opacity=".06"/><circle cx="156" cy="137" r="5" fill="currentColor"/><circle cx="156" cy="176" r="5" fill="currentColor"/><circle cx="223" cy="166" r="5" fill="currentColor"/><circle cx="251" cy="149" r="5" fill="currentColor"/><circle cx="223" cy="207" r="5" fill="currentColor"/><circle cx="251" cy="190" r="5" fill="currentColor"/><path d="M40 55q80-55 160 0t160 0" fill="none" stroke="currentColor" opacity=".35"/><path d="M40 275q80-55 160 0t160 0" fill="none" stroke="currentColor" opacity=".35"/><path d="M40 298q80-55 160 0t160 0" fill="none" stroke="currentColor" opacity=".35"/></g>
+ </svg>
