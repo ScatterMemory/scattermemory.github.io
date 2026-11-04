@@ -9,5 +9,41 @@
 @media(min-width:861px) and (max-width:1080px){.world{padding-left:44px;padding-right:44px}.contents-row{padding-top:16px;padding-bottom:16px}.contents-footnote{margin-top:18px}.music-list{min-height:130px;max-height:160px}.empty-music{min-height:130px}}
 @media(max-width:860px){.music-list{min-height:120px;max-height:170px}.empty-music{min-height:120px}.contents-row{padding:17px 0}.contents-footnote{margin-top:19px}.seek-line{font-size:10px}}
 @media(max-width:360px){.ribbons{right:-14px}.ribbon.active{transform:translateX(3px)}}
+/* Cover/page visibility follows physical occlusion, never an opacity crossfade. */
+.spread{opacity:0;visibility:hidden;transition:none}
+.book.open .spread,.book.closing .spread{opacity:1;visibility:visible}
+.book:not(.settled) #left-page{visibility:hidden}
+.book:not(.settled) .binding{visibility:hidden}
+.book .book-block{transition:none;left:50%}
+.book.settled .book-block{left:-5px}
+/* The first spread's left side is the cover lining, with no paper stack underneath. */
+@media(min-width:861px){.book.settled:has(#left-page.sm-endpaper) .book-block{left:50%}}
+.cover,.book.open .cover{opacity:1;transition:transform 1.55s cubic-bezier(.32,.02,.18,1)}
+.cover-front,.cover-back{backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.book.closing .ribbons,.book.opening .ribbons{visibility:hidden;opacity:0}
+.paper.sm-endpaper{background:#354238;border:5px solid #352d20;border-radius:10px 4px 4px 10px;padding:0;align-items:center;justify-content:center;color:#c0ac76;box-shadow:none}
+.paper.sm-endpaper:after{display:none}
+.sm-endpaper>span{font-size:70px;font-style:italic;z-index:1}
+.sm-endpaper>p{text-align:center;font-size:14px;line-height:2.4;letter-spacing:6px}
+.cover-back.closing-leaf{border:0;background:var(--paper)}
+.closing-leaf>.paper{position:absolute;inset:0;width:100%;height:100%;display:flex;border-radius:0;visibility:visible}
+@media(max-width:860px){.book .book-block,.book.settled .book-block{left:0}.book.open .cover{transform:rotateY(-180deg);opacity:1;transition:transform 1.55s cubic-bezier(.32,.02,.18,1)}}
+/* The easing controls speed; articulated strips supply the paper's curvature. */
+.book,.cover{transition-timing-function:cubic-bezier(.32,.02,.18,1)}
+.turnsheet.turning{animation:none;transform:translateZ(4px)}
+.page-strip{position:absolute;left:100%;top:0;height:100%;transform-origin:left center;transform-style:preserve-3d;will-change:transform}
+.turnsheet>.page-strip{left:0}
+.backward .page-strip{left:auto;right:100%;transform-origin:right center}
+.backward>.page-strip{right:0}
+.strip-face{position:absolute;inset:0 -0.4px 0 0;overflow:hidden;backface-visibility:hidden;background:var(--paper);border-top:1px solid #c7b38a;border-bottom:1px solid #c7b38a}
+.strip-back{transform:rotateY(180deg)}
+.strip-face:after{content:'';position:absolute;inset:0;background:rgba(69,43,12,var(--shade,0));pointer-events:none}
+.paper.page-snapshot{position:absolute;top:0;display:flex;margin:0;border-radius:0;pointer-events:none}
+.page-cast-shadow{position:absolute;inset:0;pointer-events:none;z-index:5;opacity:0}
+#footer-state{display:inline-flex;align-items:center;gap:9px;white-space:nowrap}
+.visitor-divider{opacity:.38}
+#visitor-count{font-variant-numeric:tabular-nums;letter-spacing:1px;min-width:1ch;color:#bbaa7e}
+#footer-state i{margin-left:0}
+@media(max-width:860px){.open .cover{transition-timing-function:cubic-bezier(.32,.02,.18,1),ease}.turnsheet{max-width:100%}#footer-state{gap:6px}}
 html.reduced-motion *,html.reduced-motion *:before,html.reduced-motion *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
 @media(prefers-reduced-motion:reduce){html:not(.allow-motion) *,html:not(.allow-motion) *:before,html:not(.allow-motion) *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0ms!important}}
