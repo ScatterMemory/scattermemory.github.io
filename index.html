@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#18231e"><title>ScatterMemory · 一间自己的书房</title>
+  <meta name="description" content="坐下来，翻一本书，听一段旋律。ScatterMemory 的私人书房交互预览。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%231b332b'/%3E%3Cpath d='M5 20Q20 2 35 20Q20 38 5 20Z' stroke='%23c4a773' fill='none'/%3E%3Ccircle cx='20' cy='20' r='5' fill='%23c4a773'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="study.css"><link rel="stylesheet" href="room-update.css"><link rel="stylesheet" href="journal.css"><script src="notes.js" defer></script><script src="page-turn.js" defer></script><script src="notes-reader.js" defer></script><script src="books.js" defer></script><script src="study.js" defer></script>
+</head>
+<body>
+  <main>
+    <div class="room" id="room" aria-label="书房场景">
+      <div class="wall" aria-hidden="true"></div><div class="wall-panel p1" aria-hidden="true"></div><div class="wall-panel p2" aria-hidden="true"></div>
+      <div class="window" aria-hidden="true"><div class="night-sky"><i></i><b></b></div><span class="window-bars"></span></div>
+      <div class="moonlight" aria-hidden="true"></div><div class="frame-quote" aria-hidden="true"><span>EX LIBRIS</span><svg viewBox="0 0 100 130"><path d="M50 110Q42 75 55 30M50 90Q25 80 23 62q25 3 27 28Zm1-22q1-25 24-29-2 24-24 29Zm4-23Q37 35 45 15q18 11 10 30" fill="none" stroke="currentColor"/><circle cx="50" cy="62" r="40" fill="none" stroke="currentColor" opacity=".3"/></svg><em>Stay curious.</em></div>
+      <section class="bookcase" aria-label="我的书架"><div class="case-crown"><span>THE COLLECTED SHELF</span><i>✧</i><span>35 VOLUMES</span></div><div id="shelf-rows"></div><div class="case-foot"></div></section>
+      <button class="shelf-caption" id="open-library">浏览书架 <span>35 本藏书 ↗</span></button>
+      <div class="side-cabinet" aria-hidden="true"><i></i><i></i></div>
+      <div class="gramophone" id="gramophone">
+        <button class="gram-body" id="open-music" aria-label="打开留声机音乐面板" title="打开音乐收藏">
+          <svg viewBox="0 0 300 350" aria-hidden="true"><defs><linearGradient id="brass" x1="0" x2="1" y2="1"><stop stop-color="#e9ce8c"/><stop offset=".28" stop-color="#ae803f"/><stop offset=".53" stop-color="#efce83"/><stop offset=".78" stop-color="#715126"/><stop offset="1" stop-color="#c49d55"/></linearGradient><radialGradient id="horn"><stop stop-color="#181811"/><stop offset=".3" stop-color="#3b2d17"/><stop offset=".66" stop-color="#a57e3c"/><stop offset="1" stop-color="#dec485"/></radialGradient><linearGradient id="gramWood" y2="1" x2="0"><stop stop-color="#815735"/><stop offset="1" stop-color="#342319"/></linearGradient></defs>
+          <path d="M204 263V199q0-30-32-49" stroke="url(#brass)" stroke-width="16" fill="none"/><path d="M174 159Q150 146 143 126L104 50l101-26 44 67q-48 38-75 68" fill="url(#brass)" stroke="#806031" stroke-width="2"/>
+          <path d="M107 49q-25 55 21 89 43 5 73-43l39-52q-64-45-133 6" fill="url(#brass)" stroke="#b18c4d" stroke-width="2"/>
+          <ellipse cx="154" cy="68" rx="79" ry="61" transform="rotate(-23 154 68)" fill="url(#horn)" stroke="#e0c68c" stroke-width="5"/>
+          <path d="M85 52q58 1 85 46M99 22q45 19 71 76M145 8l25 90M197 15l-27 83M228 47l-58 51M215 86l-45 12M180 121l-10-23M127 129l43-31M87 96l83 2" fill="none" stroke="#e3c37c" stroke-width="1" opacity=".38"/>
+          <ellipse cx="167" cy="91" rx="15" ry="13" fill="#1c1a11" transform="rotate(-23 167 91)"/>
+          <path d="m35 251 180-15 50 32-190 19Z" fill="#956d43" stroke="#c2985c"/><path d="m35 251 40 36v45l-40-35Z" fill="#39291f"/><path d="m75 287 190-19v45L75 333Z" fill="url(#gramWood)" stroke="#9a7345"/>
+          <g class="room-record"><ellipse cx="145" cy="262" rx="72" ry="21" fill="#151a16" stroke="#978254"/><ellipse cx="145" cy="262" rx="60" ry="17" fill="none" stroke="#4b5143"/><ellipse cx="145" cy="262" rx="46" ry="13" fill="none" stroke="#323c32"/><ellipse cx="145" cy="262" rx="22" ry="7" fill="#ac8b51"/><path class="record-glint" d="m145 262-57-12m57 12 58 12" stroke="#9a9d7c" opacity=".45"/><circle cx="145" cy="262" r="2" fill="#e8d9b0"/></g>
+          <path d="m94 302 150-15v15L94 317Z" fill="#221f17" stroke="#a3814d"/><path d="m108 307 119-12" stroke="#b2935c" stroke-dasharray="2 4"/><path d="M44 306v22m206-10v18" stroke="#4a3421" stroke-width="10"/><path d="m263 286 17 10v20h-12" stroke="#b89d66" stroke-width="5" fill="none"/>
+        </svg></button>
+        <button id="needle" class="needle" aria-label="唱针：播放或暂停" title="点击唱针 · 播放 / 暂停"><svg viewBox="0 0 100 70" aria-hidden="true"><circle cx="76" cy="15" r="7" fill="#8b713d" stroke="#ddc68c"/><g class="tonearm"><path d="M76 15 48 18 24 47" stroke="#2c2619" stroke-width="9" fill="none"/><path d="M76 15 48 18 24 47" stroke="#d7bc79" stroke-width="5" fill="none"/><ellipse cx="24" cy="47" rx="9" ry="6" fill="#b39760" stroke="#ecdbad"/></g></svg></button>
+        <span class="gram-caption">留声机 <i id="gram-status">等待一段旋律</i></span>
+      </div>
+      <div class="desk" aria-hidden="true"><div class="desk-inlay"></div></div><div class="desk-front" aria-hidden="true"></div>
+      <div class="desk-paper" aria-hidden="true"><span>Notes to myself</span><i></i><i></i><i></i><em>留白，也是一种记录。</em></div><div class="pen" aria-hidden="true"></div>
+      <div class="desk-book-space"><button id="desk-book" class="desk-book" aria-label="翻开桌上的书"><span class="solid-spine"></span><span class="solid-pages"></span><span class="solid-bottom"></span><span class="solid-top"></span><span class="solid-back"></span><span class="cover-face" id="desk-cover"></span></button><span class="desk-book-hint">轻触书封，翻开此书</span></div>
+      <div class="desk-leg leg-left" aria-hidden="true"></div><div class="desk-leg leg-right" aria-hidden="true"></div>
+      <div class="parked-book-space"><button id="parked-personal-book" aria-label="把左侧的 ScatterMemory 的人生移回书桌中央"><span class="cover-face" id="parked-cover"></span><span class="solid-spine">ScatterMemory的人生</span><span class="solid-pages"></span><span class="solid-bottom"></span><span class="solid-top"></span><span class="solid-back"></span></button></div><span class="parked-hint">轻触书封 · 移回中央 ↗</span>
+      <div class="room-vignette" aria-hidden="true"></div><span class="room-coordinate" aria-hidden="true">SCATTERMEMORY'S STUDY<br>EST. 2026</span>
+    </div>
+    <div class="room-toolbar"><div class="desk-status"><span class="status-dot"></span><span>桌上正在读</span><strong id="current-title">ScatterMemory的人生</strong></div><button id="park-book">移到书桌左侧 ←</button><button id="return-home">取回我的人生之书 ↗</button><p id="scene-status" role="status">从书架选一本，或听听留声机。</p></div>
+  </main>
+  <footer><span>35 本书 · 无数种看世界的方式</span><span>THE STORY CONTINUES <i>✧</i></span></footer>
+  <dialog id="library-dialog" class="library-dialog"><div class="dialog-heading"><div><span class="eyebrow">THE COLLECTED SHELF</span><h2>我的书架</h2></div><button data-close aria-label="关闭书架">×</button></div><label class="search-label">找一本书<input id="book-search" type="search" placeholder="输入书名…"></label><div id="library-list"></div><p class="dialog-note">收藏的是读过的书，翻开的是自己的思考。</p></dialog>
+  <dialog id="music-dialog" class="music-dialog"><div class="dialog-heading"><div><span class="eyebrow">THE GRAMOPHONE</span><h2>让记忆，有回声。</h2></div><button data-close aria-label="关闭音乐面板">×</button></div><div class="music-layout"><div class="record-section"><div class="vinyl" id="vinyl"><div>SCATTERMEMORY<strong>Memories</strong><span>PRIVATE COLLECTION</span></div></div><p>把说不出口的心事，<br>交给下一段旋律。</p></div><div class="music-controls"><div id="track-list" class="track-list"></div><span class="eyebrow">NOW PLAYING</span><h3 id="track-title">等待第一首旋律</h3><div class="timeline"><span id="elapsed">00:00</span><input id="seek" aria-label="播放进度" type="range" min="0" max="1000" value="0"><span id="duration">00:00</span></div><div class="transport"><button id="previous-track" aria-label="上一首">⏮</button><button id="play" aria-label="播放">▶</button><button id="next-track" aria-label="下一首">⏭</button><button id="repeat" aria-label="单曲循环" aria-pressed="false">↻</button></div><label class="volume">音量 <input id="volume" aria-label="音量" type="range" min="0" max="1" step=".01" value=".65"></label><button id="choose-music" class="text-button">＋ 选择 MP3 试听</button><p class="dialog-note">文件只在本机试听，不会上传；刷新后需重新选择。</p></div></div></dialog>
+  <dialog id="personal-dialog" aria-label="ScatterMemory的人生"><div class="personal-actions"><button id="personal-music">♫ 留声机</button><button id="personal-back">回到书桌</button><button id="personal-park">放到书桌左侧 ←</button></div><iframe id="personal-frame" title="ScatterMemory的人生 · 原版记忆之书" src="original-book/index.html"></iframe></dialog>
+  <dialog id="reader-dialog" class="reader-dialog"><div class="reader-top"><span id="reader-title"></span><button data-close>合书 · 回到书桌 ×</button></div><div class="reading-book" id="reading-book"><article class="reading-left" id="reading-left"></article><article class="reading-right" id="reading-right"></article><div class="reader-binding" aria-hidden="true"></div><div id="reading-turn" aria-hidden="true"></div></div><nav class="reader-nav" aria-label="读书笔记翻页"><button id="reader-prev">← 上一页</button><span id="reader-position"></span><button id="reader-next">下一页 →</button></nav></dialog>
+  <audio id="audio" preload="metadata"></audio><input id="audio-files" type="file" accept=".mp3,audio/mpeg" multiple hidden><div id="toast" role="status"></div>
+</body></html>
