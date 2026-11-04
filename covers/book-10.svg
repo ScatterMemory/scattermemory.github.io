@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 780" role="img" aria-label="灰犀牛:如何应对大概率危机 · 私人阅读手记封面"><defs>
+ <linearGradient id="cloth" x2="1" y2="1"><stop stop-color="#434b44"/><stop offset=".5" stop-color="#434b44"/><stop offset="1" stop-color="#101b19" stop-opacity=".55"/></linearGradient>
+ <linearGradient id="foil"><stop stop-color="#d1b57b"/><stop offset=".45" stop-color="#efe0b5"/><stop offset="1" stop-color="#d1b57b"/></linearGradient>
+ <pattern id="linen" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 0h6M0 2h6M0 4h6M0 0v6M3 0v6" stroke="#fff" stroke-opacity=".035" stroke-width=".6"/></pattern>
+ <radialGradient id="light"><stop stop-color="#faf0b8" stop-opacity=".10"/><stop offset="1" stop-color="#000" stop-opacity=".15"/></radialGradient></defs>
+ <rect width="600" height="780" fill="#434b44"/><rect width="600" height="780" fill="url(#cloth)"/><rect width="600" height="780" fill="url(#linen)"/><rect width="600" height="780" fill="url(#light)"/>
+ <path d="M14 0v780M23 0v780" stroke="#080e0c" stroke-opacity=".4" stroke-width="8"/>
+ <g fill="none" stroke="url(#foil)"><rect x="43" y="29" width="525" height="723" rx="2" opacity=".65"/><rect x="51" y="37" width="509" height="707" opacity=".22"/>
+ <path d="M43 68h26V29m499 39h-26V29M43 713h26v39m499-39h-26v39"/><path d="M220 237h62l18 9 18-9h62M225 653h150" opacity=".6"/></g>
+ <g fill="#d1b57b" text-anchor="middle" font-family="Georgia, 'Songti SC', SimSun, serif"><text x="300" y="80" font-size="9" letter-spacing="4">SCATTERMEMORY · PRIVATE LIBRARY</text><text x="300" y="145" font-size="29" letter-spacing="6" fill="#efe0b5">灰犀牛</text><text x="300" y="192" font-size="17" letter-spacing="2">如何应对大概率危机</text>
+ <text x="300" y="272" font-size="8.5" letter-spacing="2.5">THE VISIBLE RISK</text>
+ <text x="300" y="689" font-size="12" letter-spacing="6">阅读 · 思考 · 留痕</text><text x="300" y="719" font-size="8" letter-spacing="3">PERSONAL READING JOURNAL / 10</text></g>
+ <g transform="translate(100 295)" color="#d1b57b" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M62 231l13-70 51-42 111-9 38 22 38 40 35 3-19 20-18 32-37 10-9 44h-28l-3-41-49 1-12 40h-28l1-49-45-1-9 42H70l4-45Zm214-87 33-45-4 56m13 24 22-30-5 34 M247 131l2-28 19 24M82 160l49 39 48-48 56 47 36-57M131 199l4 38m44-86 5 89m51-42 1 41"  stroke="currentColor" fill="currentColor" fill-opacity=".06"/><circle cx="288" cy="169" r="3" fill="currentColor"/><path d="M45 293h310" fill="none" stroke="currentColor" /></g>
+ </svg>
