@@ -1,0 +1,37 @@
+<!doctype html><html lang="zh-CN" class="allow-motion"><meta charset="utf-8"><link rel="stylesheet" href="style.css"><style>html,body{width:480px;height:620px;min-height:0;margin:0;overflow:hidden;background:transparent}.cover-front{width:480px;height:620px}.eye-button{pointer-events:none}</style><body>  <svg class="svg-defs" aria-hidden="true"><defs>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".76" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".2"/></feComponentTransfer><feBlend in="SourceGraphic" mode="soft-light"/></filter>
+    <symbol id="ornament" viewBox="0 0 100 100"><path d="M6 94V6h88M13 77V13h64M8 8C44 8 48 30 34 36S14 19 35 20c28 1 10 29 31 30M20 69c-3-21 23-17 16-35M18 18l52 52M32 16c27 0 32 13 24 21M16 32c0 27 13 32 21 24M70 70l8 8m-3-16 10 6-6 10-10-6Z" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="m8 37 4 7-4 7-4-7Zm29-29 7 4 7-4-7-4Z" fill="currentColor"/></symbol>
+    <symbol id="spark" viewBox="0 0 24 24"><path d="M12 1c0 8 3 11 11 11-8 0-11 3-11 11 0-8-3-11-11-11 8 0 11-3 11-11Z" fill="currentColor"/></symbol>
+    <symbol id="play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z" fill="currentColor"/></symbol>
+    <symbol id="pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zm7 0h4v14h-4z" fill="currentColor"/></symbol>
+    <symbol id="prev" viewBox="0 0 24 24"><path d="M5 5h2v14H5zm14 0L8 12l11 7Z" fill="currentColor"/></symbol>
+    <symbol id="next" viewBox="0 0 24 24"><path d="M17 5h2v14h-2zM5 5l11 7-11 7Z" fill="currentColor"/></symbol>
+  </defs></svg>
+          <div class="cover-front">
+            <div class="cover-inset"></div><div class="spine" aria-hidden="true"></div>
+            <svg class="corner tl" aria-hidden="true"><use href="#ornament"/></svg><svg class="corner tr" aria-hidden="true"><use href="#ornament"/></svg><svg class="corner bl" aria-hidden="true"><use href="#ornament"/></svg><svg class="corner br" aria-hidden="true"><use href="#ornament"/></svg>
+            <div class="cover-topline">A COLLECTION OF FLEETING MOMENTS</div>
+            <div class="cover-title"><span>ScatterMemory</span><h1>的人生</h1></div>
+            <div class="cover-rule"><span></span> ✧ <span></span></div>
+            <button id="eye-button" class="eye-button" aria-label="点击魔眼，翻开 ScatterMemory 的人生">
+              <svg viewBox="0 0 300 220" class="eye-art" aria-hidden="true">
+                <defs>
+                  <radialGradient id="irisColor"><stop offset="0" stop-color="#071a19"/><stop offset=".30" stop-color="#a6c6a2"/><stop offset=".50" stop-color="#438f7e"/><stop offset=".80" stop-color="#24584e"/><stop offset="1" stop-color="#081e1c"/></radialGradient>
+                  <radialGradient id="whiteColor"><stop stop-color="#c4caaa"/><stop offset=".7" stop-color="#718a75"/><stop offset="1" stop-color="#172d27"/></radialGradient>
+                  <linearGradient id="goldColor"><stop stop-color="#6b4b23"/><stop offset=".4" stop-color="#e4c787"/><stop offset=".7" stop-color="#95713a"/><stop offset="1" stop-color="#d4b776"/></linearGradient>
+                  <clipPath id="eyeClip"><path d="M45 110Q150 22 255 110Q150 198 45 110Z"/></clipPath>
+                </defs>
+                <g class="eye-halo" fill="none" stroke="url(#goldColor)"><circle cx="150" cy="110" r="95" stroke-width=".7" opacity=".45"/><circle cx="150" cy="110" r="87" stroke-dasharray="1 7" opacity=".55"/><path d="M150 1v20m0 178v20M40 110H20m260 0h-20M73 33l14 14m126 126 14 14M73 187l14-14M213 47l14-14" opacity=".6"/><path d="m150 5 5 10-5 10-5-10Zm0 190 5 10-5 10-5-10Z"/></g>
+                <path d="M31 110C75 77 106 52 150 53s75 24 119 57c-46 35-77 57-119 57S77 145 31 110Z" fill="#1c2018" stroke="url(#goldColor)" stroke-width="3"/>
+                <g clip-path="url(#eyeClip)"><rect x="40" y="45" width="220" height="135" fill="url(#whiteColor)"/>
+                  <g id="iris"><circle cx="150" cy="110" r="49" fill="url(#irisColor)"/><g id="iris-fibers"></g><circle cx="150" cy="110" r="20" fill="#050d0c"/><circle cx="150" cy="110" r="23" fill="none" stroke="#b8ba70" stroke-width="1.2" opacity=".7"/><ellipse cx="139" cy="95" rx="9" ry="6" fill="#f3f9df" opacity=".75"/><circle cx="161" cy="124" r="3" fill="#d7f4e3" opacity=".6"/></g>
+                  <path class="eyelid" d="M45 110Q150 22 255 110Q150 198 45 110Z" fill="#30251b"/>
+                </g>
+                <path d="M45 110Q150 22 255 110Q150 198 45 110Z" fill="none" stroke="url(#goldColor)" stroke-width="2"/>
+                <g fill="none" stroke="url(#goldColor)" opacity=".8"><path d="M50 95q-12-17-26-13m40 2Q44 61 34 66m42 10Q66 51 54 51m196 44q12-17 26-13m-40 2q20-23 30-18m-42 10q10-25 22-25M52 130q-15 10-26 4m45 8q-15 18-28 13m205-25q15 10 26 4m-45 8q15 18 28 13"/><path d="M105 43q45-22 90 0m-90 135q45 22 90 0"/></g>
+              </svg>
+              <span class="eye-callout">轻触魔眼 · 翻开此书</span>
+            </button>
+            <div class="cover-bottom"><span class="tiny-star">✦</span><p>那些散落的瞬间<br>终将成为我的星河</p><span class="cover-volume">VOLUME I · AN UNFINISHED STORY</span></div>
+          </div>
+</body></html>
