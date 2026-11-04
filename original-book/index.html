@@ -7,7 +7,7 @@
   <meta name="description" content="ScatterMemory的人生。翻开一本记忆之书，收藏生活、旋律与不期而遇的灵感。">
   <title>ScatterMemory的人生 · 记忆之书</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23181d18'/%3E%3Cpath d='M8 32Q32 7 56 32Q32 57 8 32Z' fill='none' stroke='%23b79b62' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%237ab6a7'/%3E%3Ccircle cx='32' cy='32' r='4'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="room-book.css"><link rel="stylesheet" href="../diary-pages.css">
 </head>
 <body>
   <svg class="svg-defs" aria-hidden="true"><defs>
@@ -70,7 +70,6 @@
         <nav class="ribbons" id="ribbons" aria-label="章节书签" inert>
           <button data-chapter="toc" class="ribbon active" aria-label="目录" title="目录">目</button>
           <button data-chapter="life" class="ribbon" aria-label="生活记录" title="生活记录">生</button>
-          <button data-chapter="music" class="ribbon" aria-label="音乐创作" title="音乐创作">乐</button>
           <button data-chapter="video" class="ribbon" aria-label="视频分享" title="视频分享">影</button>
           <button data-chapter="notes" class="ribbon" aria-label="随心杂记" title="随心杂记">记</button>
         </nav>
@@ -78,11 +77,12 @@
     </div>
     <div class="under-book" id="under-book"><span class="cover-hint">它在等你，讲一个故事。</span><nav class="book-nav" aria-label="翻页操作" inert><button id="previous-page">← 上一页</button><button id="toc-button">✧ 目录</button><button id="close-book">合上书本</button><button id="next-page">下一页 →</button></nav></div>
   </main>
-  <footer class="site-footer"><span>EST. 2026</span><span>生活留痕，记忆成书。</span><span id="footer-state">THE STORY CONTINUES <i></i></span></footer>
+  <footer class="site-footer"><span>EST. 2026</span><span>生活留痕，记忆成书。</span><span id="footer-state"><span id="footer-label">THE STORY CONTINUES</span><span class="visitor-divider" aria-hidden="true">|</span><span id="visitor-count" role="status" title="正在读取累计访客数" aria-label="正在读取累计访客数">—</span><i></i></span></footer>
   <audio id="audio" preload="metadata"></audio>
   <input id="file-input" type="file" accept=".mp3,audio/mpeg,audio/mp3" multiple hidden>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="tracks.js"></script>
-  <script src="app.js"></script>
+  <script src="../page-turn.js"></script>
+  <script src="../diary-core.js"></script><script src="../diary-content.js"></script><script src="app.js"></script>
 </body>
 </html>
