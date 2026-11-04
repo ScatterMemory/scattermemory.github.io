@@ -14,4 +14,6 @@ window.STUDY_BOOKS = [
 });
 // Add your own MP3 files and relative URLs here when ready.
 // Example: { title: '曲名', src: './media/my-song.mp3' }
-window.STUDY_TRACKS = [];
+window.STUDY_TRACKS = [
+   { title: 'Five Hundred Miles', src: './media/Five Hundred Miles.mp3' }
+];
